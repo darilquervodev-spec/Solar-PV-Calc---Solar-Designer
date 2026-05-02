@@ -1,0 +1,119 @@
+{
+  "name": "Solar PV Calc - Off-Grid Solar System Designer",
+  "short_name": "Solar PV Calc",
+  "description": "Design complete off-grid & backup solar systems. Calculate solar panels, battery bank, MPPT charge controller, inverter sizing with real engineering formulas. Free solar calculator app for homeowners, installers & engineers.",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#0A1F44",
+  "theme_color": "#FFB800",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon-48.webp",
+      "type": "image/webp",
+      "sizes": "48x48",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-72.webp",
+      "type": "image/webp",
+      "sizes": "72x72",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96.webp",
+      "type": "image/webp",
+      "sizes": "96x96",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128.webp",
+      "type": "image/webp",
+      "sizes": "128x128",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-256.webp",
+      "type": "image/webp",
+      "sizes": "256x256",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "utilities",
+    "productivity",
+    "education",
+    "business"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Dashboard - Solar System Overview"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Add Appliances & Calculate Power"
+    },
+    {
+      "src": "/screenshot-3.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Solar System Recommendations"
+    },
+    {
+      "src": "/screenshot-4.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Professional Wiring Diagrams"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Add Appliance",
+      "short_name": "Add",
+      "description": "Quickly add a new appliance",
+      "url": "/appliances",
+      "icons": [{ "src": "/icons/icon-96.webp", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Calculations",
+      "short_name": "Calculate",
+      "description": "View solar system recommendations",
+      "url": "/recommendations",
+      "icons": [{ "src": "/icons/icon-96.webp", "sizes": "96x96" }]
+    },
+    {
+      "name": "Wiring Diagrams",
+      "short_name": "Diagrams",
+      "description": "View system wiring diagrams",
+      "url": "/diagram",
+      "icons": [{ "src": "/icons/icon-96.webp", "sizes": "96x96" }]
+    }
+  ]
+}

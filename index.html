@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  
+  <!-- Primary Meta Tags - ASO Optimized for Google Play -->
+  <title>Solar PV Calc - Off-Grid Solar System Designer & Calculator</title>
+  <meta name="title" content="Solar PV Calc - Off-Grid Solar System Designer & Calculator">
+  <meta name="description" content="Free solar power system designer & calculator. Calculate solar panels, batteries, MPPT charge controller & inverter sizing using real engineering formulas. Perfect for off-grid homes, backup power & solar installations. Works offline. 100% free.">
+  <meta name="keywords" content="solar calculator, solar system designer, off-grid solar, solar panel calculator, solar battery calculator, MPPT charge controller, solar inverter, photovoltaic calculator, solar power calculator, solar energy app, backup power, solar wiring diagram, solar installation, solar sizing, PV system calculator">
+  <meta name="author" content="DarskeeWorks">
+  <meta name="application-name" content="Solar PV Calc">
+  <meta name="version" content="3.0">
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Solar PV Calc - Off-Grid Solar System Designer">
+  <meta property="og:description" content="Free solar power calculator app. Design complete off-grid solar systems with real engineering formulas. Calculate panels, batteries, MPPT controller & inverter sizing.">
+  <meta property="og:image" content="/icons/icon-512.webp">
+  <meta property="og:site_name" content="Solar PV Calc">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Solar PV Calc - Off-Grid Solar System Designer">
+  <meta name="twitter:description" content="Free solar power calculator. Design complete off-grid solar systems with real engineering formulas.">
+  <meta name="twitter:image" content="/icons/icon-512.webp">
+  <meta name="twitter:creator" content="@DarskeeWorks">
+
+  <!-- Mobile App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Solar PV Calc">
+  
+  <!-- Google Play Store / App Store Meta Tags -->
+  <meta name="google" content="notranslate">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="rating" content="General">
+  <meta name="distribution" content="global">
+  <meta name="revisit-after" content="7 days">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#FFB800">
+  <meta name="msapplication-TileColor" content="#0A1F44">
+  <meta name="msapplication-navbutton-color" content="#FFB800">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/webp" sizes="192x192" href="/icons/icon-192.webp">
+  <link rel="icon" type="image/webp" sizes="512x512" href="/icons/icon-512.webp">
+  <link rel="apple-touch-icon" href="/icons/icon-192.webp">
+  
+  <!-- Prevent zooming on input focus (mobile) -->
+  <style>
+    @media screen and (max-width: 768px) {
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        font-size: 16px !important;
+      }
+    }
+    
+    /* Prevent pull-to-refresh on mobile */
+    body {
+      overscroll-behavior-y: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Hide scrollbars but keep functionality */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    
+    /* Loading screen */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0A1F44 0%, #153870 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.3s ease-out;
+    }
+    
+    #loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(255, 184, 0, 0.3);
+      border-top-color: #FFB800;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+      color: #FFB800;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+    <div class="loading-text">Solar PV Calc</div>
+  </div>
+  
+  <!-- App Root -->
+  <div id="root"></div>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    // Register Service Worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('✅ Service Worker registered:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+    
+    // Hide loading screen when app is ready
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.classList.add('hidden');
+          setTimeout(() => {
+            loadingScreen.remove();
+          }, 300);
+        }
+      }, 500);
+    });
+    
+    // Prevent double-tap zoom on iOS
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (event) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
+    
+    // Install prompt for PWA
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('💡 App can be installed');
+    });
+    
+    // Track if app was launched as standalone (installed)
+    window.addEventListener('DOMContentLoaded', () => {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches 
+        || window.navigator.standalone 
+        || document.referrer.includes('android-app://');
+      
+      if (isStandalone) {
+        console.log('📱 Running as installed app');
+        // Add any app-specific logic here
+      }
+    });
+  </script>
+  
+  <!-- Vite App Entry -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

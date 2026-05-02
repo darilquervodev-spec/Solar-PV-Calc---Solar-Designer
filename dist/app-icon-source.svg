@@ -1,0 +1,62 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#122C5A"/>
+      <stop offset="100%" stop-color="#0A1F44"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFD060"/>
+      <stop offset="100%" stop-color="#FFA000"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square (Play Store icon mask: 108px radius) -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)"/>
+
+  <!-- Subtle glow ring behind sun -->
+  <circle cx="256" cy="224" r="168" fill="#FFB800" opacity="0.09"/>
+  <circle cx="256" cy="224" r="130" fill="#FFB800" opacity="0.08"/>
+
+  <!-- 8 sun rays — same rect rotated around sun center (256, 224) -->
+  <g fill="url(#sunGrad)">
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(0   256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(45  256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(90  256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(135 256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(180 256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(225 256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(270 256 224)"/>
+    <rect x="243" y="38"  width="26" height="74" rx="13" transform="rotate(315 256 224)"/>
+  </g>
+
+  <!-- Sun body outer -->
+  <circle cx="256" cy="224" r="106" fill="url(#sunGrad)" filter="url(#glow)"/>
+
+  <!-- Dark ring (depth effect) -->
+  <circle cx="256" cy="224" r="78"  fill="#0A1F44"/>
+
+  <!-- Sun core -->
+  <circle cx="256" cy="224" r="60"  fill="url(#sunGrad)"/>
+
+  <!-- Lightning bolt (bold, dark on yellow) -->
+  <path d="M272 172 L242 232 L262 232 L246 286 L290 218 L270 218 Z" fill="#0A1F44"/>
+
+  <!-- Bottom label strip -->
+  <rect x="80" y="384" width="352" height="72" rx="20" fill="#FFB800" opacity="0.12"/>
+
+  <!-- "PV CALC" label -->
+  <text
+    x="256" y="434"
+    text-anchor="middle"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-size="42"
+    font-weight="900"
+    letter-spacing="4"
+    fill="#FFB800"
+    opacity="0.85"
+  >PV CALC</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="80" fill="#FFB800"/>
+  
+  <!-- Sun Circle -->
+  <circle cx="256" cy="240" r="90" fill="#0A1F44"/>
+  
+  <!-- Sun Rays -->
+  <!-- Top ray -->
+  <rect x="246" y="90" width="20" height="50" rx="10" fill="#0A1F44"/>
+  <!-- Top-right ray -->
+  <rect x="341" y="125" width="20" height="50" rx="10" fill="#0A1F44" transform="rotate(45 351 150)"/>
+  <!-- Right ray -->
+  <rect x="386" y="230" width="50" height="20" rx="10" fill="#0A1F44"/>
+  <!-- Bottom-right ray -->
+  <rect x="341" y="315" width="20" height="50" rx="10" fill="#0A1F44" transform="rotate(-45 351 340)"/>
+  <!-- Bottom ray -->
+  <rect x="246" y="350" width="20" height="50" rx="10" fill="#0A1F44"/>
+  <!-- Bottom-left ray -->
+  <rect x="151" y="315" width="20" height="50" rx="10" fill="#0A1F44" transform="rotate(45 161 340)"/>
+  <!-- Left ray -->
+  <rect x="76" y="230" width="50" height="20" rx="10" fill="#0A1F44"/>
+  <!-- Top-left ray -->
+  <rect x="151" y="125" width="20" height="50" rx="10" fill="#0A1F44" transform="rotate(-45 161 150)"/>
+  
+  <!-- Lightning Bolt (Zap) - positioned at bottom right of sun -->
+  <g transform="translate(300, 300)">
+    <!-- Lightning bolt shape -->
+    <path d="M35 10 L15 45 L25 45 L20 75 L55 30 L40 30 L50 10 Z" 
+          fill="#FFB800" 
+          stroke="#0A1F44" 
+          stroke-width="4" 
+          stroke-linejoin="round"/>
+  </g>
+</svg>

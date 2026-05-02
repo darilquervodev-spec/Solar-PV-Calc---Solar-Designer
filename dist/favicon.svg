@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#FFB800"/>
+  
+  <!-- Sun Circle -->
+  <circle cx="16" cy="15" r="6.5" fill="#0A1F44"/>
+  
+  <!-- Sun Rays (simplified for small size) -->
+  <rect x="15" y="4" width="2" height="4" rx="1" fill="#0A1F44"/>
+  <rect x="24" y="14" width="4" height="2" rx="1" fill="#0A1F44"/>
+  <rect x="15" y="23" width="2" height="4" rx="1" fill="#0A1F44"/>
+  <rect x="4" y="14" width="4" height="2" rx="1" fill="#0A1F44"/>
+  
+  <!-- Lightning Bolt -->
+  <path d="M21 19 L18 22 L19 22 L17.5 25 L22 21 L20 21 L21.5 19 Z" 
+        fill="#FFB800" 
+        stroke="#0A1F44" 
+        stroke-width="0.5"/>
+</svg>
